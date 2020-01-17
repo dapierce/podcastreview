@@ -1,2 +1,0 @@
-# podcastreview
-Podcast reviewing website
