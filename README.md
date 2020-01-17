@@ -1,3 +1,7 @@
-Podcast Review
+# Podcast Review
 
-Podcast reviewing website
+Podcast reviewing website.
+
+`/podcastreview-frontend` - Angular front end website
+
+`/backend` - Express server backend
