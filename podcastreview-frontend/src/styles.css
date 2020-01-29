@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --font-title: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-family: var(--font-title);
+}
+
+body {
+  font-family: var(--font-body);
+}
