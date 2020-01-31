@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser"
+import { NgModule } from "@angular/core"
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { PodcastDetailsComponent } from './components/podcast-details/podcast-details.component';
-import { ListPodcastsComponent } from './components/list-podcasts/list-podcasts.component';
+import { AppRoutingModule } from "./app-routing.module"
+import { AppComponent } from "./app.component"
+import { HeaderComponent } from "./components/header/header.component"
+import { FooterComponent } from "./components/footer/footer.component"
+import { PodcastDetailsComponent } from "./components/podcast-details/podcast-details.component"
+import { ListPodcastsComponent } from "./components/list-podcasts/list-podcasts.component"
 
 @NgModule({
   declarations: [
@@ -14,13 +14,10 @@ import { ListPodcastsComponent } from './components/list-podcasts/list-podcasts.
     HeaderComponent,
     FooterComponent,
     PodcastDetailsComponent,
-    ListPodcastsComponent
+    ListPodcastsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
