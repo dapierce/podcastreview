@@ -1,0 +1,33 @@
+.la-plus-circle {
+  margin-right: 4px;
+}
+
+.la-star,
+.la-star-half {
+  color: gold;
+  font-size: 42px;
+  text-shadow: 0 1px 0 #666;
+}
+.info-heading {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+#creator,
+#rating {
+  font-weight: 700;
+}
+.center-in-col {
+  justify-content: center;
+}
+.podcast_details__img_col img {
+  align-self: center;
+  max-width: 300px;
+}
+.podcast_details__img_col .tags {
+  max-width: 300px;
+}
+.podcast_details__desc_col,
+.podcast_details__review_buttons {
+  padding-top: 0;
+}

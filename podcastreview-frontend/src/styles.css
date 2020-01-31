@@ -5,11 +5,20 @@
   --font-body: "Lato", sans-serif;
 }
 
-h1 {
-  font-size: 2.5em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-title);
 }
 
 body {
   font-family: var(--font-body);
+}
+
+button .las {
+  font-size: 28px !important;
+  margin-top: -1px;
 }
