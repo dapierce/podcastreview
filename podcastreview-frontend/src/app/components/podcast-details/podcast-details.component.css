@@ -4,21 +4,56 @@
 
 .la-star,
 .la-star-half {
-  color: gold;
   font-size: 42px;
   text-shadow: 0 1px 0 #666;
 }
-.info-heading {
-  font-size: 1.4em;
-  font-weight: 700;
+.star-unfilled {
+  color: #999;
+}
+.star-filled {
+  color: gold;
+}
+.ratings {
+  font-family: Times;
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #aaa;
+  text-shadow: 0 1px 1px #666;
+  overflow: hidden;
+}
+.full-stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: gold;
+}
+.empty-stars:before,
+.full-stars:before {
+  content: "\2605\2605\2605\2605\2605";
+  font-size: 48px;
+}
+.empty-stars:before {
+  -webkit-text-stroke: 1px #999;
+}
+.full-stars:before {
+  -webkit-text-stroke: 1px #e4c200;
 }
 
+#stars {
+  overflow: hidden;
+}
 #creator,
 #rating {
   font-weight: 700;
 }
 .center-in-col {
   justify-content: center;
+}
+.col-padding {
+  padding-bottom: 2em;
 }
 .podcast_details__img_col img {
   align-self: center;
