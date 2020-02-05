@@ -38,18 +38,18 @@
           <div class="column is-flex center-in-col podcast_details__desc_col">
             <div class="ratings" aria-hidden="true">
               <div class="empty-stars"></div>
-              <!-- TODO: calculate width by dividing rating / 5 * 100 -->
+              <!-- TODO: calculate width by rating / 5 * 100 -->
               <div class="full-stars" style="width:50%"></div>
             </div>
           </div>
           <div class="columns is-mobile">
             <div class="column">
-              <p id="rating" class="info-heading">Rating: [rating data]</p>
+              <p id="rating" class="info-heading">Rating: [rating #]</p>
               <div class="field is-grouped is-grouped-multiline">
                 <div class="control">
                   <div class="tags has-addons">
-                    <span class="tag is-primary">[tag data]</span>
-                    <span class="tag is-dark">[number]</span>
+                    <span class="tag is-primary">[tag name]</span>
+                    <span class="tag is-dark">[# of tags]</span>
                   </div>
                 </div>
               </div>
@@ -69,16 +69,14 @@
         </div>
       </div>
       <hr />
-      <div class="section podcast_details__review_buttons">
-        <div class="buttons is-pulled-right">
-          <div class="control">
-            <button id="later-shelf" class="button" disabled>
-              <i class="las la-plus-circle"></i> Add to Listen Later shelf
-            </button>
-            <button id="review" class="button is-info">
-              Review Podcast
-            </button>
-          </div>
+      <div class="column is-flex podcast_details__review_buttons">
+        <div class="buttons is-right">
+          <button id="later-shelf" class="button" disabled>
+            <i class="las la-plus-circle"></i> Add to Listen Later shelf
+          </button>
+          <button id="review" class="button is-info">
+            Review Podcast
+          </button>
         </div>
       </div>
     </div>
