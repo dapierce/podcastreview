@@ -2,7 +2,7 @@
 
 <section id="pod-details" class="section">
   <div class="columns">
-    <div class="column box is-info is-10 is-offset-1 has-background-white-bis">
+    <div class="column box is-info is-10 is-offset-1">
       <h2 class="is-size-3 has-text-centered">[podcast title]</h2>
       <div class="columns">
         <div
@@ -36,9 +36,11 @@
         </div>
         <div class="column">
           <div class="column is-flex center-in-col podcast_details__desc_col">
-            <p id="stars">
-              <i class="las la-star" aria-hidden="true"></i>[# of stars]
-            </p>
+            <div class="ratings" aria-hidden="true">
+              <div class="empty-stars"></div>
+              <!-- TODO: calculate width by dividing rating / 5 * 100 -->
+              <div class="full-stars" style="width:50%"></div>
+            </div>
           </div>
           <div class="columns is-mobile">
             <div class="column">
@@ -47,7 +49,7 @@
                 <div class="control">
                   <div class="tags has-addons">
                     <span class="tag is-primary">[tag data]</span>
-                    <span class="tag is-dark">2</span>
+                    <span class="tag is-dark">[number]</span>
                   </div>
                 </div>
               </div>
@@ -61,7 +63,7 @@
           </div>
           <div class="column">
             <p id="description">
-              [decription data]
+              [description data]
             </p>
           </div>
         </div>
@@ -69,12 +71,14 @@
       <hr />
       <div class="section podcast_details__review_buttons">
         <div class="buttons is-pulled-right">
-          <button id="review" class="button">
-            <i class="las la-plus-circle"></i> Add to Listen Later shelf
-          </button>
-          <button id="review" class="button is-info">
-            Review Podcast
-          </button>
+          <div class="control">
+            <button id="later-shelf" class="button" disabled>
+              <i class="las la-plus-circle"></i> Add to Listen Later shelf
+            </button>
+            <button id="review" class="button is-info">
+              Review Podcast
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -83,11 +87,32 @@
 
 <!-- Review List -->
 
-<section id="reviews" class="section">
-  <!-- Review entry -->
-  <div id="review" class="column box is-8 is-offset-2">
-    <p>[user name] Review</p>
-    <p>Rating: 5</p>
-    <p>Love it!</p>
+<section id="pod-reviews" class="section">
+  <div id="pod-review" class="columns content col-padding">
+    <div class="column box has-background-white-bis is-10 is-offset-1">
+      <div class="columns">
+        <div class="column is-narrow" style="width: 260px;">
+          <h3 class="is-size-4">[username]'s Review</h3>
+          <div class="ratings" aria-hidden="true">
+            <div class="empty-stars"></div>
+            <!-- TODO: calculate width by dividing rating / 5 * 100 -->
+            <div class="full-stars" style="width:70%"></div>
+          </div>
+          <p id="tags is-flex center-in-col">
+            <span class="tag">
+              [tag data]
+            </span>
+          </p>
+        </div>
+
+        <div class="column">
+          <p>
+            [user submitted review]
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Continue user reviews -->
 </section>
