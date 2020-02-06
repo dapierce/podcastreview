@@ -22,3 +22,46 @@ button .las {
   font-size: 28px !important;
   margin-top: -1px;
 }
+
+/* Podcast network classes */
+
+.feeds__apple {
+  background-color: #e94df8 !important;
+  color: white !important;
+  font-weight: 700;
+}
+.feeds__apple:hover {
+  background-color: #f080fa !important;
+}
+.feeds__google {
+  background-color: #ff5722 !important;
+  color: white !important;
+  font-weight: 700;
+}
+.feeds__google:hover {
+  background-color: #ff7e57 !important;
+}
+.feeds__spotify {
+  background-color: #1ed760 !important;
+  color: black !important;
+  font-weight: 700;
+}
+.feeds__spotify:hover {
+  background-color: #43e57b !important;
+}
+.feeds__stitcher {
+  background-color: #36a8e6 !important;
+  color: white !important;
+  font-weight: 700;
+}
+.feeds__stitcher:hover {
+  background-color: #65bdec !important;
+}
+.feeds__rss {
+  background-color: #fa9c39 !important;
+  color: white !important;
+  font-weight: 700;
+}
+.feeds__rss:hover {
+  background-color: #fbb56a !important;
+}
