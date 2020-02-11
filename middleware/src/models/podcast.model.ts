@@ -7,7 +7,7 @@ import mongoose, { Schema, Document } from "mongoose";
  *   Podcast:
  *     type: object
  *     properties:
- *       id:
+ *       _id:
  *         type: string
  *         example: '1234'
  *       name:
@@ -19,51 +19,57 @@ import mongoose, { Schema, Document } from "mongoose";
  *           type: string
  *           example: ['Saron Yitbarek']
  *       tags:
- *         type: object
- *         properties:
- *           id:
- *             type: string
- *             example: '1234'
- *           name:
- *             type: string
- *             example: 'Tech'
- *           count:
- *             type: integer
- *             example: 25
+ *         type: array
+ *         items:
+ *           type: object
+ *           properties:
+ *             _id:
+ *               type: string
+ *               example: '1234'
+ *             name:
+ *               type: string
+ *               example: 'Tech'
+ *             count:
+ *               type: integer
+ *               example: 25
  *       network:
- *         type: object
- *         properties:
- *           id:
- *             type: string
- *             example: '1234'
- *           name:
- *             type: string
- *             example: 'Apple Podcasts'
- *           url:
- *             type: string
- *             example: 'https://podcasts.apple.com/us/podcast/id919219256'
+ *         type: array
+ *         items:
+ *           type: object
+ *           properties:
+ *             _id:
+ *               type: string
+ *               example: '1234'
+ *             name:
+ *               type: string
+ *               example: 'Apple Podcasts'
+ *             url:
+ *               type: string
+ *               example: 'https://podcasts.apple.com/us/podcast/id919219256'
  *       rating:
  *         type: number
  *         example: 3.2
  *       reviews:
- *         type: object
- *         properties:
- *           id:
- *             type: string
- *             example: '1234'
- *           user:
- *             type: string
- *             example: 'David'
- *           rating:
- *             type: number
- *             example: 4
- *           text:
- *             type: string
- *             example: 'This is my podcast review.'
+ *         type: array
+ *         items:
+ *           type: object
+ *           properties:
+ *             _id:
+ *               type: string
+ *               example: '1234'
+ *             user:
+ *               type: string
+ *               example: 'David'
+ *             rating:
+ *               type: number
+ *               example: 4
+ *             text:
+ *               type: string
+ *               example: 'This is my podcast review.'
  */
 
 export interface PodcastInterface extends Document {
-  id: string;
+  _id: string;
   name: string;
   cast: Array<string>;
   tags: object;
@@ -73,7 +79,7 @@ export interface PodcastInterface extends Document {
 }
 
 const PodcastSchema: Schema = new Schema({
-  id: { type: String, required: true, unique: true },
+  _id: { type: String, required: true, unique: true },
   name: { type: String, required: true, unique: false },
   cast: { type: Array, required: false, unique: false },
   tags: { type: Object, required: false, unique: false },
