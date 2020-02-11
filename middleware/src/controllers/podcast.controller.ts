@@ -15,6 +15,7 @@ export class PodcastController implements ControllerInterface {
     this.router.get("/", this.getPodcasts);
     this.router.get("/search/:", this.getPodcastSearchResults);
     this.router.get("/podcast/:", this.getPodcast);
+    // this.router.post("/review", this.postReview);
   }
 
   /**
@@ -81,7 +82,7 @@ export class PodcastController implements ControllerInterface {
       next(
         new HttpException(
           500,
-          `Failed to calculate mean age of users ${details}`
+          `Failed to find podcasts that match your search ${details}`
         )
       );
     }
@@ -117,12 +118,12 @@ export class PodcastController implements ControllerInterface {
     const id: string = req.params.id;
     try {
       const query = Podcast.find();
-      query.where("id").gte(id);
+      query.where("_id").gte(id);
       const users = await query.exec();
       res.json(users);
     } catch (error) {
       const details = JSON.stringify(error);
-      next(new HttpException(500, `Failed to query users ${details}`));
+      next(new HttpException(500, `No podcast found ${details}`));
     }
   }
 }
