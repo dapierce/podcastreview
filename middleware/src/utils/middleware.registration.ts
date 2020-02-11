@@ -1,9 +1,16 @@
-import bodyParser from "body-parser";
 import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 
 import * as env from "../environment";
 import jsConfig = require("../swagger.json");
+
+const allowList: string[] = ["http://localhost:4200", env.allowedCors];
+
+const corsOptions: cors.CorsOptions = {
+  origin: allowList,
+};
 
 function LoggingMiddleware(
   req: express.Request,
@@ -30,6 +37,6 @@ export function RegisterMiddleware(app: express.Express): void {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use(LoggingMiddleware);
-
+  app.use(cors(corsOptions));
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(jsConfig));
 }
