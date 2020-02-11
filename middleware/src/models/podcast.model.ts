@@ -7,7 +7,7 @@ import mongoose, { Schema, Document } from "mongoose";
  *   Podcast:
  *     type: object
  *     properties:
- *       _id:
+ *       id:
  *         type: string
  *         example: '1234'
  *       name:
@@ -23,7 +23,7 @@ import mongoose, { Schema, Document } from "mongoose";
  *         items:
  *           type: object
  *           properties:
- *             _id:
+ *             id:
  *               type: string
  *               example: '1234'
  *             name:
@@ -37,7 +37,7 @@ import mongoose, { Schema, Document } from "mongoose";
  *         items:
  *           type: object
  *           properties:
- *             _id:
+ *             id:
  *               type: string
  *               example: '1234'
  *             name:
@@ -54,7 +54,7 @@ import mongoose, { Schema, Document } from "mongoose";
  *         items:
  *           type: object
  *           properties:
- *             _id:
+ *             id:
  *               type: string
  *               example: '1234'
  *             user:
@@ -69,8 +69,8 @@ import mongoose, { Schema, Document } from "mongoose";
  */
 
 export interface PodcastInterface extends Document {
-  _id: string;
-  name: string;
+  id: string;
+  PodcastName: string;
   cast: Array<string>;
   tags: Array<object>;
   network: Array<object>;
@@ -79,19 +79,19 @@ export interface PodcastInterface extends Document {
 }
 
 const PodcastSchema: Schema = new Schema({
-  _id: { type: String, required: true, unique: true },
+  id: { type: String, required: true, unique: true },
   name: { type: String, required: true, unique: false },
   cast: { type: Array, required: false, unique: false },
   tags: [
     {
-      _id: { type: String, required: true, unique: true },
+      id: { type: String, required: true, unique: true },
       name: { type: String, required: true, unique: false },
       count: { type: Number, required: false, unique: false },
     },
   ],
   network: [
     {
-      _id: { type: String, required: true, unique: true },
+      id: { type: String, required: true, unique: true },
       name: { type: String, required: true, unique: false },
       url: { type: String, required: true, unique: false },
     },
@@ -99,7 +99,7 @@ const PodcastSchema: Schema = new Schema({
   rating: { type: Number, required: false, unique: false },
   reviews: [
     {
-      _id: { type: String, required: true, unique: true },
+      id: { type: String, required: true, unique: true },
       user: { type: String, required: true, unique: false },
       rating: { type: Number, required: false, unique: false },
       text: { type: String, required: false, unique: false },
