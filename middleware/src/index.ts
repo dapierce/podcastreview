@@ -1,38 +1,25 @@
-import express from "express"
+import express from "express";
+import mongoose from "mongoose";
+
+import * as environment from "./environment";
+import { RegisterControllers } from "./utils/controller.registration";
+import { RegisterErrorMiddleware } from "./utils/errorhandler.registration";
+import { RegisterMiddleware } from "./utils/middleware.registration";
 
 // start express, open port and path to db
-const app = express()
-const port = process.env.PORT || 8080
-//const mongoDbUrl =
+const app = express();
 
-// Send message for default URL
-app.get("/", (req, res) => res.send("Hello World!"))
+RegisterMiddleware(app);
+RegisterControllers(app);
+RegisterErrorMiddleware(app);
 
-// Launch app to listen to specified port
-app.listen(port, async () => {
-  console.log("Podcast Review server is ready on port " + port)
-})
-
-// middleware to log requests
-app.use(function(req, res, next) {
-  const now = new Date(Date.now())
-  console.log(
-    "Time: " +
-      now.toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      }) +
-      " | Request URL: " +
-      req.originalUrl +
-      " | Request Type: " +
-      req.method +
-      " | Response: " +
-      res.statusCode +
-      "\n"
-  )
-  next()
-})
+// start the Express server
+app.listen(environment.port, async () => {
+  const options: mongoose.ConnectionOptions = {
+    useNewUrlParser: true,
+  };
+  await mongoose.connect(environment.mongoDbUrl, options);
+  const collections = await mongoose.connection.db.collections();
+  collections.forEach(c => console.log(`Found: ${c.collectionName}`));
+  console.log(`server is ready ${environment.baseUrl}:${environment.port}`);
+});
