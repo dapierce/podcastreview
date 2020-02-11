@@ -72,20 +72,39 @@ export interface PodcastInterface extends Document {
   _id: string;
   name: string;
   cast: Array<string>;
-  tags: object;
-  network: object;
+  tags: Array<object>;
+  network: Array<object>;
   rating: number;
-  reviews: object;
+  reviews: Array<object>;
 }
 
 const PodcastSchema: Schema = new Schema({
   _id: { type: String, required: true, unique: true },
   name: { type: String, required: true, unique: false },
   cast: { type: Array, required: false, unique: false },
-  tags: { type: Object, required: false, unique: false },
-  network: { type: Object, required: true, unique: false },
+  tags: [
+    {
+      _id: { type: String, required: true, unique: true },
+      name: { type: String, required: true, unique: false },
+      count: { type: Number, required: false, unique: false },
+    },
+  ],
+  network: [
+    {
+      _id: { type: String, required: true, unique: true },
+      name: { type: String, required: true, unique: false },
+      url: { type: String, required: true, unique: false },
+    },
+  ],
   rating: { type: Number, required: false, unique: false },
-  reviews: { type: Object, required: false, unique: false },
+  reviews: [
+    {
+      _id: { type: String, required: true, unique: true },
+      user: { type: String, required: true, unique: false },
+      rating: { type: Number, required: false, unique: false },
+      text: { type: String, required: false, unique: false },
+    },
+  ],
 });
 
 export const Podcast = mongoose.model<PodcastInterface>(
