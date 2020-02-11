@@ -100,7 +100,7 @@
     "Podcast": {
       "type": "object",
       "properties": {
-        "_id": {
+        "id": {
           "type": "string",
           "example": "1234"
         },
@@ -122,7 +122,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "_id": {
+              "id": {
                 "type": "string",
                 "example": "1234"
               },
@@ -142,7 +142,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "_id": {
+              "id": {
                 "type": "string",
                 "example": "1234"
               },
@@ -166,7 +166,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "_id": {
+              "id": {
                 "type": "string",
                 "example": "1234"
               },
