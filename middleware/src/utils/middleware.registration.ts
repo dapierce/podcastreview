@@ -37,6 +37,7 @@ export function RegisterMiddleware(app: express.Express): void {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use(LoggingMiddleware);
-  app.use(cors(corsOptions));
+  // let's just open our middleware up to see if that allows outside access...
+  app.use(cors());
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(jsConfig));
 }
