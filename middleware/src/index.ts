@@ -21,5 +21,7 @@ app.listen(environment.port, async () => {
   await mongoose.connect(environment.mongoDbUrl, options);
   const collections = await mongoose.connection.db.collections();
   collections.forEach(c => console.log(`Found: ${c.collectionName}`));
-  console.log(`server is ready ${environment.baseUrl}:${environment.port}`);
+  console.log(
+    `********\n\x1b[44mPodacast Review Middleware\x1b[0m is ready at ${environment.baseUrl}:${environment.port}\n********`
+  );
 });
