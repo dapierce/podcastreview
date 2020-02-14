@@ -8,7 +8,6 @@
   display: inline-block;
   color: #aaa;
   overflow: hidden;
-  margin-top: -1em;
 }
 .full-stars {
   position: absolute;
@@ -44,8 +43,14 @@
 .col-padding {
   padding-bottom: 2em;
 }
+.podcast_details__img_col {
+  padding-bottom: 0;
+}
 .podcast_details__img_col img {
   align-self: center;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  margin-top: 1em;
   max-width: 300px;
 }
 .podcast_details__img_col .tags {
@@ -61,4 +66,8 @@
 }
 .button {
   margin-right: 0;
+}
+
+.podcast_review_col {
+  text-align: center;
 }

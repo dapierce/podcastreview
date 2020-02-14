@@ -11,14 +11,16 @@
           <div class="levels">
             <figure class="level image is-300x300">
               <img
-                src="https://via.placeholder.com/300"
+                src="/assets/podcast-cbb.jpg"
                 alt="Cover artwork of [podcast title]"
               />
             </figure>
             <div class="tags is-centered">
-              <span class="feeds__apple tag">
-                Apple Podcasts
-              </span>
+              <a href="">
+                <span class="feeds__apple tag">
+                  Apple Podcasts
+                </span>
+              </a>
               <span class="feeds__google tag">
                 Google Play
               </span>
@@ -89,14 +91,14 @@
   <div id="pod-review" class="columns content col-padding">
     <div class="column box has-background-white-bis is-10 is-offset-1">
       <div class="columns">
-        <div class="column is-narrow" style="width: 260px;">
+        <div class="column is-narrow-tablet podcast_review_col">
           <h3 class="is-size-4">[username]'s Review</h3>
           <div class="ratings" aria-hidden="true">
-            <div class="empty-stars"></div>
+            <div class="empty-stars is-centered"></div>
             <!-- TODO: calculate width by dividing rating / 5 * 100 -->
-            <div class="full-stars" style="width:70%"></div>
+            <div class="full-stars is-centered" style="width:70%"></div>
           </div>
-          <p id="tags is-flex center-in-col">
+          <p id="tags is-flex">
             <span class="tag">
               [tag data]
             </span>
