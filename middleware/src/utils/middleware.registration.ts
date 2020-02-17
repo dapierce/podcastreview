@@ -19,14 +19,14 @@ function LoggingMiddleware(
 ): void {
   const now = new Date(Date.now());
   console.log(
-    `Time: ${now.toLocaleDateString(undefined, {
+    `\x1b[30m\x1b[43m ${now.toLocaleDateString(undefined, {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
-    })} | Request URL: ${env.baseUrl}:${env.port}${req.url} | Response: ${
+    })} \x1b[0m Request URL: ${env.baseUrl}:${env.port}${req.url} | Response: ${
       res.statusCode
     }`
   );
@@ -37,7 +37,6 @@ export function RegisterMiddleware(app: express.Express): void {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use(LoggingMiddleware);
-  // let's just open our middleware up to see if that allows outside access...
-  app.use(cors());
+  app.use(cors(corsOptions));
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(jsConfig));
 }
