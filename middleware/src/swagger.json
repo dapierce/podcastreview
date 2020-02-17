@@ -100,22 +100,29 @@
     "Podcast": {
       "type": "object",
       "properties": {
-        "id": {
+        "_id": {
           "type": "string",
-          "example": "1234"
+          "example": "2e4b0d5d724daf2210bb9698"
         },
         "name": {
           "type": "string",
           "example": "CodeNewbie"
         },
-        "cast": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "example": [
-              "Saron Yitbarek"
-            ]
-          }
+        "creators": {
+          "type": "string",
+          "example": "Saron Yitbarek"
+        },
+        "description": {
+          "type": "string",
+          "example": "Stories and interviews from people on their coding journey."
+        },
+        "rating": {
+          "type": "number",
+          "example": 3.2
+        },
+        "review_count": {
+          "type": "integer",
+          "example": 2
         },
         "tags": {
           "type": "array",
@@ -156,10 +163,6 @@
               }
             }
           }
-        },
-        "rating": {
-          "type": "number",
-          "example": 3.2
         },
         "reviews": {
           "type": "array",

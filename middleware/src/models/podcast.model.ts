@@ -78,7 +78,7 @@ export interface PodcastInterface extends Document {
   creators: string;
   description: string;
   rating: number;
-  review_count: number;
+  reviewCount: number;
   tags: Array<object>;
   network: Array<object>;
   reviews: Array<object>;
@@ -90,7 +90,7 @@ const PodcastSchema: Schema = new Schema({
   creators: { type: String, required: false, unique: false },
   description: { type: String, required: false, unique: false },
   rating: { type: Number, required: false, unique: false },
-  review_count: { type: Number, required: false, unique: false },
+  reviewCount: { type: Number, required: false, unique: false },
   tags: [
     {
       id: { type: String, required: false, unique: true },
