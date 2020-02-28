@@ -11,8 +11,13 @@ Podcast reviewing website. The two folders contain seperate Node programs:
 ```
 cd podcastreview-frontend
 npm install
+```
+
+The frontend will be installed by npm, and when it's over you can then install the middleware.
+
+```
 cd ../middleware
 npm install
 ```
 
-The frontend will be installed by npm, and when it's over you can then install the middleware. Now the middleware will be installed by npm, and with both complete, you are now ready to develop!
+Now the middleware will be installed by npm, and with both complete, you are now ready to develop!

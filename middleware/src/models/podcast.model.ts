@@ -7,9 +7,6 @@ import mongoose, { Schema, Document } from "mongoose";
  *   Podcast:
  *     type: object
  *     properties:
- *       _id:
- *         type: string
- *         example: '2e4b0d5d724daf2210bb9698'
  *       name:
  *         type: string
  *         example: 'CodeNewbie'
@@ -44,9 +41,6 @@ import mongoose, { Schema, Document } from "mongoose";
  *         items:
  *           type: object
  *           properties:
- *             id:
- *               type: string
- *               example: '1234'
  *             name:
  *               type: string
  *               example: 'Apple Podcasts'
@@ -58,9 +52,6 @@ import mongoose, { Schema, Document } from "mongoose";
  *         items:
  *           type: object
  *           properties:
- *             id:
- *               type: string
- *               example: '1234'
  *             user:
  *               type: string
  *               example: 'David'
@@ -73,7 +64,6 @@ import mongoose, { Schema, Document } from "mongoose";
  */
 
 export interface PodcastInterface extends Document {
-  _id: string;
   name: string;
   creators: string;
   description: string;
@@ -85,32 +75,28 @@ export interface PodcastInterface extends Document {
 }
 
 const PodcastSchema: Schema = new Schema({
-  _id: { type: String, required: true, unique: true },
-  name: { type: String, required: true, unique: false },
-  creators: { type: String, required: false, unique: false },
-  description: { type: String, required: false, unique: false },
-  rating: { type: Number, required: false, unique: false },
-  reviewCount: { type: Number, required: false, unique: false },
+  name: { type: String, required: true },
+  creators: { type: String, required: false },
+  description: { type: String, required: false },
+  rating: { type: Number, required: false },
+  reviewCount: { type: Number, required: false },
   tags: [
     {
-      id: { type: String, required: false, unique: true },
-      name: { type: String, required: false, unique: false },
-      count: { type: Number, required: false, unique: false },
+      name: { type: String, required: false },
+      count: { type: Number, required: false },
     },
   ],
   network: [
     {
-      id: { type: String, required: false, unique: true },
-      name: { type: String, required: false, unique: false },
-      url: { type: String, required: false, unique: false },
+      name: { type: String, required: false },
+      url: { type: String, required: false },
     },
   ],
   reviews: [
     {
-      id: { type: String, required: false, unique: true },
-      user: { type: String, required: false, unique: false },
-      rating: { type: Number, required: false, unique: false },
-      text: { type: String, required: false, unique: false },
+      user: { type: String, required: false },
+      rating: { type: Number, required: false },
+      text: { type: String, required: false },
     },
   ],
 });
