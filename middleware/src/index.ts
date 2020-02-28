@@ -17,6 +17,7 @@ RegisterErrorMiddleware(app);
 app.listen(environment.port, async () => {
   const options: mongoose.ConnectionOptions = {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   };
   await mongoose.connect(environment.mongoDbUrl, options);
   const collections = await mongoose.connection.db.collections();

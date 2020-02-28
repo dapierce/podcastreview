@@ -28,7 +28,7 @@
         "responses": {
           "200": {
             "response": {
-              "type": "object",
+              "type": "array",
               "items": {
                 "$ref": "#/definitions/Podcast"
               }
@@ -100,10 +100,6 @@
     "Podcast": {
       "type": "object",
       "properties": {
-        "_id": {
-          "type": "string",
-          "example": "2e4b0d5d724daf2210bb9698"
-        },
         "name": {
           "type": "string",
           "example": "CodeNewbie"
@@ -149,10 +145,6 @@
           "items": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "string",
-                "example": "1234"
-              },
               "name": {
                 "type": "string",
                 "example": "Apple Podcasts"
@@ -169,10 +161,6 @@
           "items": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "string",
-                "example": "1234"
-              },
               "user": {
                 "type": "string",
                 "example": "David"

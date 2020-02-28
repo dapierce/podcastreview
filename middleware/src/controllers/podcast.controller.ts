@@ -29,7 +29,7 @@ export class PodcastController implements ControllerInterface {
    *     responses:
    *       200:
    *         response:
-   *           type: object
+   *           type: array
    *           items:
    *              $ref: '#/definitions/Podcast'
    */
@@ -75,7 +75,7 @@ export class PodcastController implements ControllerInterface {
     next: express.NextFunction
   ): Promise<void> {
     try {
-      const podcasts = await Podcast.find();
+      const podcasts = await Podcast.find(req);
       res.json(podcasts);
     } catch (error) {
       const details = JSON.stringify(error);
@@ -115,12 +115,9 @@ export class PodcastController implements ControllerInterface {
     res: express.Response,
     next: express.NextFunction
   ): Promise<void> {
-    const id: string = req.params.id;
     try {
-      const query = Podcast.find();
-      query.where("_id").gte(id);
-      const users = await query.exec();
-      res.json(users);
+      const query = Podcast.findById(req);
+      res.json(query);
     } catch (error) {
       const details = JSON.stringify(error);
       next(new HttpException(500, `No podcast found ${details}`));
