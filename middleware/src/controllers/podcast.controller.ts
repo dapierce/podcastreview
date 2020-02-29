@@ -13,9 +13,10 @@ export class PodcastController implements ControllerInterface {
 
   initializeRoutes(): void {
     this.router.get("/", this.getPodcasts);
-    this.router.get("/search/:", this.getPodcastSearchResults);
-    this.router.get("/podcast/:", this.getPodcast);
-    // this.router.post("/review", this.postReview);
+    this.router.get("/search/:query", this.getPodcastSearchResults);
+    this.router.get("/podcast/:id", this.getPodcast);
+    // this.router.get("/tag/:name", this.getTaggedPodcasts);
+    // this.router.post("/review/:id", this.postReview);
   }
 
   /**
@@ -39,7 +40,12 @@ export class PodcastController implements ControllerInterface {
     next: express.NextFunction
   ): Promise<void> {
     try {
-      const podcasts = await Podcast.find();
+      const podcasts = await Podcast.find({}, [
+        "name",
+        "creators",
+        "rating",
+        "review_count",
+      ]);
       res.json(podcasts);
     } catch (error) {
       const details = JSON.stringify(error);
@@ -50,7 +56,7 @@ export class PodcastController implements ControllerInterface {
   /**
    * @swagger
    *
-   * /search/{input}:
+   * /search/{query}:
    *   get:
    *     description: Get podcasts that match search terms.
    *     produces:
@@ -74,8 +80,15 @@ export class PodcastController implements ControllerInterface {
     res: express.Response,
     next: express.NextFunction
   ): Promise<void> {
+    const search = req.params.query;
+    console.log("Search: " + search);
     try {
-      const podcasts = await Podcast.find(req);
+      const podcasts = await Podcast.find(search, [
+        "name",
+        "creators",
+        "rating",
+        "review_count",
+      ]);
       res.json(podcasts);
     } catch (error) {
       const details = JSON.stringify(error);
@@ -115,8 +128,17 @@ export class PodcastController implements ControllerInterface {
     res: express.Response,
     next: express.NextFunction
   ): Promise<void> {
+    const idInput: string = req.params.id;
+    const idSanitized: string = idInput.replace(/\W/g, "").toLowerCase();
+    console.log("Get Podcast: " + idSanitized);
     try {
-      const query = Podcast.findById(req);
+      const query = await Podcast.findById(idSanitized, [
+        "name",
+        "creators",
+        "description",
+        "rating",
+        "review_count",
+      ]);
       res.json(query);
     } catch (error) {
       const details = JSON.stringify(error);
