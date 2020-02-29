@@ -37,7 +37,7 @@
         }
       }
     },
-    "/search/{input}": {
+    "/search/{query}": {
       "get": {
         "description": "Get podcasts that match search terms.",
         "produces": [
