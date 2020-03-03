@@ -84,11 +84,7 @@ export class PodcastController implements ControllerInterface {
     console.log("Search: " + search);
     try {
       const podcasts = await Podcast.find(
-        {
-          name: search,
-          creators: search,
-          tag: search,
-        },
+        { $or: [{ name: search }, { creators: search }, { tag: search }] },
         ["name", "creators", "rating", "review_count"]
       );
       res.json(podcasts);
