@@ -87,6 +87,7 @@ export class PodcastController implements ControllerInterface {
         ["name", "creators", "rating", "review_count"]
       );
       res.json(podcasts);
+      console.log(podcasts);
     } catch (error) {
       const details = JSON.stringify(error);
       next(

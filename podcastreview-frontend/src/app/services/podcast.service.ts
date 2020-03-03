@@ -39,8 +39,8 @@ export class PodcastService {
     return this.http.get<Podcast[]>(`${this.searchUrl}/${term}`).pipe(
       tap(x =>
         x.length
-          ? console.log(`found heroes matching "${term}"`)
-          : console.log(`no heroes matching "${term}"`)
+          ? console.log(`found podcasts matching "${term}"`)
+          : console.log(`no podcasts matching "${term}"`)
       ),
       catchError(this.handleError<Podcast[]>("searchPodcasts", []))
     )
