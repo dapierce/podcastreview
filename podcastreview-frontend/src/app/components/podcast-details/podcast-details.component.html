@@ -12,7 +12,7 @@
             <figure class="level image is-300x300">
               <img
                 src="/assets/podcast-cbb.jpg"
-                alt="Cover artwork of [podcast title]"
+                alt="Cover artwork of {{ podcast.name }}"
               />
             </figure>
             <div class="tags is-centered">
@@ -41,12 +41,14 @@
             <div class="ratings" aria-hidden="true">
               <div class="empty-stars"></div>
               <!-- TODO: calculate width by rating / 5 * 100 -->
-              <div class="full-stars" style="width:50%"></div>
+              <div class="full-stars" [style.width.%]="starPercent"></div>
             </div>
           </div>
           <div class="columns is-mobile">
             <div class="column">
-              <p id="rating" class="info-heading">Rating: [rating #]</p>
+              <p id="rating" class="info-heading">
+                Rating: {{ podcast.rating / podcast.reviewCount }}
+              </p>
               <div class="field is-grouped is-grouped-multiline">
                 <div class="control">
                   <div class="tags has-addons">
@@ -59,13 +61,13 @@
             <div class="column">
               <div id="creator">
                 <p class="info-heading">Created by:</p>
-                <p>[creator data]</p>
+                <p>{{ podcast.creators }}</p>
               </div>
             </div>
           </div>
           <div class="column">
             <p id="description">
-              [description data]
+              {{ podcast.description }}
             </p>
           </div>
         </div>
