@@ -64,7 +64,7 @@ export class PodcastController implements ControllerInterface {
    *     parameters:
    *       - in: path
    *         name: input
-   *         description: Name of podcast, creator or tag you wish to find.
+   *         description: Name of podcast, creators or tag you wish to find.
    *         required: true
    *         schema:
    *           type: string
@@ -83,11 +83,14 @@ export class PodcastController implements ControllerInterface {
     const search = req.params.query;
     console.log("Search: " + search);
     try {
-      const podcasts = await Podcast.find({
-        name: search,
-        creator: search,
-        tag: search,
-      });
+      const podcasts = await Podcast.find(
+        {
+          name: search,
+          creators: search,
+          tag: search,
+        },
+        ["name", "creators", "rating", "review_count"]
+      );
       res.json(podcasts);
     } catch (error) {
       const details = JSON.stringify(error);
