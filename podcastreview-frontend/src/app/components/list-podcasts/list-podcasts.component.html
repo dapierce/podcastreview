@@ -1,1 +1,13 @@
-<p>list-podcasts works!</p>
+<div id="search-component">
+  <h4><label for="search-box">Podcast Search</label></h4>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let podcast of podcasts$ | async">
+      <a routerLink="/podcast/{{ podcast.id }}">
+        {{ podcast.name }}
+      </a>
+    </li>
+  </ul>
+</div>
