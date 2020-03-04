@@ -80,13 +80,16 @@ export class PodcastController implements ControllerInterface {
     res: express.Response,
     next: express.NextFunction
   ): Promise<void> {
-    const search = req.params.query;
+    const search = req.params.query.replace(/\W/g, "");
+    const searchRegex = new RegExp(search, "gi");
     console.log("Search: " + search);
     try {
-      const podcasts = await Podcast.find(
-        { $or: [{ name: search }, { creators: search }, { tag: search }] },
-        ["name", "creators", "rating", "review_count"]
-      );
+      const podcasts = await Podcast.find({ name: searchRegex }, [
+        "name",
+        "creators",
+        "rating",
+        "review_count",
+      ]);
       res.json(podcasts);
       console.log(podcasts);
     } catch (error) {

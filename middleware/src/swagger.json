@@ -47,7 +47,7 @@
           {
             "in": "path",
             "name": "input",
-            "description": "Name of podcast, creator or tag you wish to find.",
+            "description": "Name of podcast, creators or tag you wish to find.",
             "required": true,
             "schema": {
               "type": "string"
