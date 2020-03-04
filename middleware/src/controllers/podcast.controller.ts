@@ -81,11 +81,15 @@ export class PodcastController implements ControllerInterface {
     next: express.NextFunction
   ): Promise<void> {
     const search = req.params.query;
+    const searchRegex = "/" + search + "$/";
     console.log("Search: " + search);
     try {
-      const podcasts = await Podcast.find({ name: search }, 
-        ["name", "creators", "rating", "review_count"]
-      );
+      const podcasts = await Podcast.find({ name: search }, [
+        "name",
+        "creators",
+        "rating",
+        "review_count",
+      ]);
       res.json(podcasts);
       console.log(podcasts);
     } catch (error) {
