@@ -1,0 +1,20 @@
+.navbar {
+    display: block;
+    justify-content: space-between;
+    margin-top: 125px;
+  }
+  
+  button .las {
+    font-size: 28px !important;
+    margin-top: -1px;
+    
+  }
+  
+  #login .las {
+    margin-left: 4px;
+    
+  }
+  #pr-search {
+    width: 150%;
+  }
+  

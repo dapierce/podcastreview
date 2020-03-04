@@ -7,7 +7,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PodcastDetailsComponent } from './components/podcast-details/podcast-details.component';
 import { ListPodcastsComponent } from './components/list-podcasts/list-podcasts.component';
-import { LargeSearchBarComponent } from './large-search-bar/large-search-bar.component';
+import { LargeSearchBarComponent } from './components/large-search-bar/large-search-bar.component';
+import { LargeLogoComponent } from './components/large-logo/large-logo.component';
+import { LargeLoginComponent } from './components/large-login/large-login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { LargeSearchBarComponent } from './large-search-bar/large-search-bar.com
     FooterComponent,
     PodcastDetailsComponent,
     ListPodcastsComponent,
-    LargeSearchBarComponent
+    LargeSearchBarComponent,
+    LargeLogoComponent,
+    LargeLoginComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
