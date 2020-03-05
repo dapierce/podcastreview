@@ -5,6 +5,8 @@ export interface Podcast {
   description: string
   rating: number
   reviewCount: number
+  ratingAvg: number
+  ratingPercent: number
   tags: Array<object>
   network: Array<object>
   reviews: Array<object>

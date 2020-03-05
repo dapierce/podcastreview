@@ -10,8 +10,10 @@ import { Podcast } from "../podcast"
 })
 export class PodcastService {
   // base api urls
-  private apiUrl =
-    "https://podcast-review-middle-sass-winter-su.azurewebsites.net/"
+  // private apiUrl =
+  //   "https://podcast-review-middle-sass-winter-su.azurewebsites.net/"
+  private apiUrl = "http://localhost:8080/"
+
   private podcastUrl = this.apiUrl + "podcast"
   private searchUrl = this.apiUrl + "search"
 

@@ -40,14 +40,16 @@
           <div class="column is-flex center-in-col podcast_details__desc_col">
             <div class="ratings" aria-hidden="true">
               <div class="empty-stars"></div>
-              <!-- TODO: calculate width by rating / 5 * 100 -->
-              <div class="full-stars" [style.width.%]="starPercent"></div>
+              <div
+                class="full-stars"
+                [style.width.%]="podcast.ratingPercent"
+              ></div>
             </div>
           </div>
           <div class="columns is-mobile">
             <div class="column">
               <p id="rating" class="info-heading">
-                Rating: {{ podcast.rating / podcast.reviewCount }}
+                Rating: {{ podcast.ratingAvg }}
               </p>
               <div class="field is-grouped is-grouped-multiline">
                 <div class="control">

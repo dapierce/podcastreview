@@ -19,7 +19,7 @@ import mongoose, { Schema, Document } from "mongoose";
  *       rating:
  *         type: number
  *         example: 3.2
- *       review_count:
+ *       reviewCount:
  *         type: integer
  *         example: 2
  *       tags:
@@ -74,31 +74,52 @@ export interface PodcastInterface extends Document {
   reviews: Array<object>;
 }
 
-const PodcastSchema: Schema = new Schema({
-  name: { type: String, required: true },
-  creators: { type: String, required: false },
-  description: { type: String, required: false },
-  rating: { type: Number, required: false },
-  reviewCount: { type: Number, required: false },
-  tags: [
-    {
-      name: { type: String, required: false },
-      count: { type: Number, required: false },
-    },
-  ],
-  network: [
-    {
-      name: { type: String, required: false },
-      url: { type: String, required: false },
-    },
-  ],
-  reviews: [
-    {
-      user: { type: String, required: false },
-      rating: { type: Number, required: false },
-      text: { type: String, required: false },
-    },
-  ],
+const PodcastSchema: Schema = new Schema(
+  {
+    name: { type: String, required: true },
+    creators: { type: String, required: false },
+    description: { type: String, required: false },
+    rating: { type: Number, required: false },
+    reviewCount: { type: Number, required: false },
+    tags: [
+      {
+        name: { type: String, required: false },
+        count: { type: Number, required: false },
+      },
+    ],
+    network: [
+      {
+        name: { type: String, required: false },
+        url: { type: String, required: false },
+      },
+    ],
+    reviews: [
+      {
+        user: { type: String, required: false },
+        rating: { type: Number, required: false },
+        text: { type: String, required: false },
+      },
+    ],
+  },
+  {
+    toJSON: { virtuals: true },
+  }
+);
+
+// calculate the 0-5 star rating of the podcast from db values
+PodcastSchema.virtual("ratingAvg").get(function(): number {
+  if (this.reviewCount === 0 || isNaN(this.reviewCount)) {
+    return 0;
+  }
+  return this.rating / this.reviewCount;
+});
+
+// calculate the 0-100 score of the podcast
+PodcastSchema.virtual("ratingPercent").get(function(): number {
+  if (this.reviewCount === 0 || isNaN(this.reviewCount)) {
+    return 0;
+  }
+  return Math.round((this.rating / this.reviewCount / 5) * 100);
 });
 
 export const Podcast = mongoose.model<PodcastInterface>(

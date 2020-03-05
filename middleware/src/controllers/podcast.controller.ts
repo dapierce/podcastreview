@@ -44,7 +44,9 @@ export class PodcastController implements ControllerInterface {
         "name",
         "creators",
         "rating",
-        "review_count",
+        "reviewCount",
+        "ratingAvg",
+        "ratingPercent",
       ]);
       res.json(podcasts);
     } catch (error) {
@@ -88,7 +90,9 @@ export class PodcastController implements ControllerInterface {
         "name",
         "creators",
         "rating",
-        "review_count",
+        "reviewCount",
+        "ratingAvg",
+        "ratingPercent",
       ]);
       res.json(podcasts);
       console.log(podcasts);
@@ -139,8 +143,11 @@ export class PodcastController implements ControllerInterface {
         "creators",
         "description",
         "rating",
-        "review_count",
+        "reviewCount",
+        "ratingAvg",
+        "ratingPercent",
       ]);
+      // add calculated rating to query
       res.json(query);
     } catch (error) {
       const details = JSON.stringify(error);

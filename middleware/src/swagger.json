@@ -116,7 +116,7 @@
           "type": "number",
           "example": 3.2
         },
-        "review_count": {
+        "reviewCount": {
           "type": "integer",
           "example": 2
         },
