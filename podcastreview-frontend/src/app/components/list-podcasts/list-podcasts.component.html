@@ -1,6 +1,6 @@
 <div id="search-component" class="section">
   <div class="columns">
-    <div class="column box is-info is-6 is-offset-3">
+    <div class="panel column box is-info is-6 is-offset-3">
       <h2><label for="search-box">Podcast Search</label></h2>
 
       <input
@@ -12,7 +12,10 @@
 
       <ul class="search-result">
         <li *ngFor="let podcast of podcasts$ | async">
-          <a routerLink="/podcast/{{ podcast._id }}">
+          <a
+            class="panel-block is-active"
+            routerLink="/podcast/{{ podcast._id }}"
+          >
             {{ podcast.name }}
           </a>
         </li>
