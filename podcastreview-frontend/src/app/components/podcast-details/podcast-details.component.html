@@ -16,23 +16,13 @@
               />
             </figure>
             <div class="tags is-centered">
-              <a href="">
-                <span class="feeds__apple tag">
-                  Apple Podcasts
-                </span>
-              </a>
-              <span class="feeds__google tag">
-                Google Play
-              </span>
-              <span class="feeds__spotify tag">
-                Spotify
-              </span>
-              <span class="feeds__stitcher tag">
-                Stitcher
-              </span>
-              <span class="feeds__rss tag">
-                RSS
-              </span>
+              <div *ngFor="let network of podcast.network">
+                <a href="{{ network.url }}">
+                  <span class="{{ network.class }} tag">
+                    {{ network.name }}
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -52,10 +42,10 @@
                 Rating: {{ podcast.ratingAvg }}
               </p>
               <div class="field is-grouped is-grouped-multiline">
-                <div class="control">
+                <div *ngFor="let tag of podcast.tags" class="control">
                   <div class="tags has-addons">
-                    <span class="tag is-primary">[tag name]</span>
-                    <span class="tag is-dark">[# of tags]</span>
+                    <span class="tag is-primary">{{ tag.name }}</span>
+                    <span class="tag is-dark">{{ tag.count }}</span>
                   </div>
                 </div>
               </div>
@@ -91,32 +81,36 @@
 
 <!-- Review List -->
 
-<section id="pod-reviews" class="section">
+<section
+  *ngFor="let review of podcast.reviews"
+  id="pod-reviews"
+  class="section"
+>
   <div id="pod-review" class="columns content col-padding">
     <div class="column box has-background-white-bis is-10 is-offset-1">
       <div class="columns">
         <div class="column is-narrow-tablet podcast_review_col">
-          <h3 class="is-size-4">[username]'s Review</h3>
+          <h3 class="is-size-4">{{ review.user }}'s Review</h3>
           <div class="ratings" aria-hidden="true">
             <div class="empty-stars is-centered"></div>
-            <!-- TODO: calculate width by dividing rating / 5 * 100 -->
-            <div class="full-stars is-centered" style="width:70%"></div>
+            <div
+              class="full-stars is-centered"
+              [style.width.%]="(review.rating / 5) * 100"
+            ></div>
           </div>
-          <p id="tags is-flex">
-            <span class="tag">
-              [tag data]
+          <div id="tags">
+            <span *ngFor="let tag of review.tags" class="tag">
+              {{ tag.name }}
             </span>
-          </p>
+          </div>
         </div>
 
         <div class="column">
           <p>
-            [user submitted review]
+            {{ review.text }}
           </p>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Continue user reviews -->
 </section>
