@@ -146,6 +146,9 @@ export class PodcastController implements ControllerInterface {
         "reviewCount",
         "ratingAvg",
         "ratingPercent",
+        "tags",
+        "network",
+        "reviews",
       ]);
       // add calculated rating to query
       res.json(query);

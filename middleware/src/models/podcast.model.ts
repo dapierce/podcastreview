@@ -111,7 +111,8 @@ PodcastSchema.virtual("ratingAvg").get(function(): number {
   if (this.reviewCount === 0 || isNaN(this.reviewCount)) {
     return 0;
   }
-  return this.rating / this.reviewCount;
+  const formatedRating = (this.rating / this.reviewCount).toPrecision(2);
+  return Number(formatedRating);
 });
 
 // calculate the 0-100 score of the podcast

@@ -1,38 +1,6 @@
 .la-plus-circle {
   margin-right: 4px;
 }
-.ratings {
-  font-family: Times;
-  position: relative;
-  vertical-align: middle;
-  display: inline-block;
-  color: #aaa;
-  overflow: hidden;
-}
-.full-stars {
-  position: absolute;
-  left: 0;
-  top: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  color: gold;
-}
-.empty-stars:before,
-.full-stars:before {
-  content: "\2605\2605\2605\2605\2605";
-  font-size: 55px;
-}
-.empty-stars:before {
-  text-shadow: 0 1px 3px #666;
-  -webkit-text-stroke: 1px #999;
-}
-.full-stars:before {
-  -webkit-text-stroke: 1px #e4c200;
-}
-
-#stars {
-  overflow: hidden;
-}
 #creator,
 #rating {
   font-weight: 700;
