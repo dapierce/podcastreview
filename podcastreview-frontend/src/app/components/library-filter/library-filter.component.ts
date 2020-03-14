@@ -7,10 +7,10 @@ import { PodcastService } from "../../services/podcast.service"
 
 @Component({
   selector: "app-podcast-details",
-  templateUrl: "./podcast-details.component.html",
-  styleUrls: ["./podcast-details.component.css"],
+  templateUrl: "./library-filter.html",
+  styleUrls: ["./library-filter.component.css"],
 })
-export class PodcastDetailsComponent implements OnInit {
+export class PodcastHomeComponent implements OnInit {
   @Input() podcast: Podcast
 
   constructor(

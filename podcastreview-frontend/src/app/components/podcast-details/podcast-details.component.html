@@ -1,1 +1,116 @@
-<p>podcast-details works!</p>
+<!-- Podcast Details -->
+
+<section id="pod-details" class="section">
+  <div class="columns">
+    <div class="column box is-info is-10 is-offset-1">
+      <h2 class="is-size-3 has-text-centered">{{ podcast.name }}</h2>
+      <div class="columns">
+        <div
+          class="column is-narrow is-flex center-in-col podcast_details__img_col"
+        >
+          <div class="levels">
+            <figure class="level image is-300x300">
+              <img
+                src="/assets/podcast-cbb.jpg"
+                alt="Cover artwork of {{ podcast.name }}"
+              />
+            </figure>
+            <div class="tags is-centered">
+              <div *ngFor="let network of podcast.network">
+                <a href="{{ network.url }}">
+                  <span class="{{ network.class }} tag">
+                    {{ network.name }}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="column is-flex center-in-col podcast_details__desc_col">
+            <div class="ratings" aria-hidden="true">
+              <div class="empty-stars"></div>
+              <div
+                class="full-stars"
+                [style.width.%]="podcast.ratingPercent"
+              ></div>
+            </div>
+          </div>
+          <div class="columns is-mobile">
+            <div class="column">
+              <p id="rating" class="info-heading">
+                Rating: {{ podcast.ratingAvg }}
+              </p>
+              <div class="field is-grouped is-grouped-multiline">
+                <div *ngFor="let tag of podcast.tags" class="control">
+                  <div class="tags has-addons">
+                    <span class="tag is-primary">{{ tag.name }}</span>
+                    <span class="tag is-dark">{{ tag.count }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div id="creator">
+                <p class="info-heading">Created by:</p>
+                <p>{{ podcast.creators }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <p id="description">
+              {{ podcast.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="column is-flex podcast_details__review_buttons">
+        <div class="buttons is-right">
+          <button id="later-shelf" class="button" disabled>
+            <i class="las la-plus-circle"></i> Add to Listen Later shelf
+          </button>
+          <button id="review" class="button is-info">
+            Review Podcast
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Review List -->
+
+<section
+  *ngFor="let review of podcast.reviews"
+  id="pod-reviews"
+  class="section"
+>
+  <div id="pod-review" class="columns content col-padding">
+    <div class="column box has-background-white-bis is-10 is-offset-1">
+      <div class="columns">
+        <div class="column is-narrow-tablet podcast_review_col">
+          <h3 class="is-size-4">{{ review.user }}'s Review</h3>
+          <div class="ratings" aria-hidden="true">
+            <div class="empty-stars is-centered"></div>
+            <div
+              class="full-stars is-centered"
+              [style.width.%]="(review.rating / 5) * 100"
+            ></div>
+          </div>
+          <div id="tags">
+            <span *ngFor="let tag of review.tags" class="tag">
+              {{ tag.name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="column">
+          <p>
+            {{ review.text }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

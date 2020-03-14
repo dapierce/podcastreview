@@ -1,0 +1,10 @@
+.app {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto auto 1fr max-content;
+  min-height: 100vh;
+}
+
+.app-footer {
+  bottom: 0;
+}

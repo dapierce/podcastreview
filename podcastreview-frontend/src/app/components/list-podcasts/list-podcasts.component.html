@@ -1,1 +1,25 @@
-<p>list-podcasts works!</p>
+<div id="search-component" class="section">
+  <div class="columns">
+    <div class="panel column box is-info is-6 is-offset-3">
+      <h2><label for="search-box">Podcast Search</label></h2>
+
+      <input
+        class="input"
+        #searchBox
+        id="search-box"
+        (input)="search(searchBox.value)"
+      />
+
+      <ul class="search-result">
+        <li *ngFor="let podcast of podcasts$ | async">
+          <a
+            class="panel-block is-active"
+            routerLink="/podcast/{{ podcast._id }}"
+          >
+            {{ podcast.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
